@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,6 +10,51 @@ import solar from '@/public/solar.png'
 import hero from '@/public/hero.png'
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      image: hero.src,
+      alt: "Modern kitchen with stainless steel appliances",
+      title: "Professional-Grade Appliances",
+      description: "Discover our comprehensive range of refrigerators, freezers, washing machines, and kitchen appliances. Engineered for performance, designed for life."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=874&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Beautiful modern kitchen with appliances",
+      title: "Design Your Dream Kitchen",
+      description: "Premium appliances that combine style, performance, and energy efficiency for the modern Zimbabwean home."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1588854337236-6889d631faa8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Laundry room with modern washer and dryer",
+      title: "Effortless Laundry Solutions",
+      description: "Energy-efficient washing machines and dryers designed to make laundry day easier and more efficient."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Modern living room with appliances",
+      title: "Complete Home Solutions",
+      description: "From air conditioning to solar, we have everything you need for a comfortable, efficient home."
+    }
+  ];
+
+  // Auto-advance slides
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   const premiumProducts = [
     {
       name: 'FRIDGES',
@@ -37,28 +82,75 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section - Mobile Optimized */}
-      <section className="relative text-white overflow-hidden">
-        {/* Background Image with Overlay */}
+      {/* Hero Section with Slideshow - Fixed Height Container */}
+      <section className="relative text-white overflow-hidden h-[500px] sm:h-[550px] md:h-[600px]">
+        {/* Fixed container for all slides */}
         <div className="absolute inset-0">
-          <img
-            src={hero.src}
-            alt="Modern kitchen with appliances"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-linear-to-r from-sky-900/95 via-sky-800/65 to-sky-500/10"></div>
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+            >
+              {/* Fixed image container with consistent positioning */}
+              <div className="absolute inset-0">
+                <img
+                  src={slide.image}
+                  alt={slide.alt}
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-sky-900/90 via-sky-800/60 to-sky-300/40"></div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
+        {/* Slide Navigation Buttons */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition group cursor-pointer"
+          aria-label="Previous slide"
+        >
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition group cursor-pointer"
+          aria-label="Next slide"
+        >
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex space-x-2 ">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all cursor-pointer duration-300 ${index === currentSlide
+                ? 'w-6 bg-white'
+                : 'bg-white/50 hover:bg-white/70'
+                }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Content - Centered vertically with consistent positioning */}
+        <div className="container mx-15  sm:px-6 h-full relative z-10 flex items-center">
           <div className="max-w-3xl">
             <span className="inline-block bg-white/10 backdrop-blur-sm text-sky-100 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 sm:mb-6">
               Proudly Zimbabwean • Established 1966
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-              Professional-Grade Appliances for the Modern Home
+              {slides[currentSlide].title}
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-sky-100 mb-6 sm:mb-8 leading-relaxed">
-              Discover our comprehensive range of refrigerators, freezers, washing machines, and kitchen appliances. Engineered for performance, designed for life.
+              {slides[currentSlide].description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:space-x-4">
               <Link href="/products" className="bg-white text-sky-900 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-sky-50 transition shadow-lg text-center">
@@ -72,7 +164,7 @@ export default function Home() {
         </div>
 
         {/* Trust Badges - Mobile Optimized */}
-        <div className="border-t border-white/10 bg-black/20 backdrop-blur-sm">
+        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/20 backdrop-blur-sm z-10">
           <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-between gap-3 sm:gap-0 items-center text-xs sm:text-sm">
               <div className="flex items-center space-x-1 sm:space-x-2">
@@ -105,6 +197,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Rest of the page remains the same */}
       {/* Premium Featured Categories - Mobile Optimized */}
       <section className="bg-gray-50">
         <div className="container mx-auto px-0">
@@ -120,17 +213,12 @@ export default function Home() {
             {premiumProducts.map((product, index) => (
               <Link key={index} href={product.href} className="group relative overflow-hidden">
                 <div className="relative aspect-square">
-                  {/* Image */}
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                   />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
-
-                  {/* Text - Mobile Optimized */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-8">
                     <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl text-white mb-1 sm:mb-2 tracking-wide font-bold">
                       {product.name}
@@ -144,7 +232,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us - Mobile Optimized */}
+      {/* Why Choose Us section */}
       <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -180,7 +268,7 @@ export default function Home() {
             </div>
 
             <div className="relative mt-8 lg:mt-0">
-              <div className="bg-linear-to-br from-sky-600 to-sky-800 rounded-2xl p-1 shadow-2xl">
+              <div className="bg-gradient-to-br from-sky-600 to-sky-800 rounded-2xl p-1 shadow-2xl">
                 <div className="bg-white rounded-xl p-4 sm:p-6 md:p-8">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Visit Our Showroom</h3>
 
@@ -227,7 +315,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Decorative Elements - Hidden on mobile */}
               <div className="hidden sm:block absolute -bottom-4 -right-4 w-24 md:w-32 h-24 md:h-32 bg-sky-100 rounded-full -z-10"></div>
               <div className="hidden sm:block absolute -top-4 -left-4 w-16 md:w-24 h-16 md:h-24 bg-sky-200 rounded-full -z-10"></div>
             </div>
@@ -236,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* Credit CTA Section - Mobile Optimized */}
-      <section className="relative bg-linear-to-r from-sky-900 to-sky-800 py-12 sm:py-16 md:py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-sky-900 to-sky-800 py-12 sm:py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
