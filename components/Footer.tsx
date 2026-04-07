@@ -22,11 +22,13 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-semibold mb-4">Products</h4>
                         <ul className="space-y-2 text-sm">
-                            <li><Link href="/products/fridges" className="hover:text-blue-400">Fridges</Link></li>
+                            <li><Link href="/products/fridges" className="hover:text-blue-400">Refrigeration</Link></li>
                             <li><Link href="/products/freezers" className="hover:text-blue-400">Freezers</Link></li>
-                            <li><Link href="/products/ice-makers" className="hover:text-blue-400">Ice Makers</Link></li>
                             <li><Link href="/products/laundry" className="hover:text-blue-400">Laundry</Link></li>
+                            <li><Link href="/products/ice-makers" className="hover:text-blue-400">Cooking</Link></li>
                             <li><Link href="/products/air-conditioning" className="hover:text-blue-400">Air Conditioning</Link></li>
+                            <li><Link href="/products/kitchen" className="hover:text-blue-400">Kitchen Appliances</Link></li>
+                            <li><Link href="/products/bespoke" className="hover:text-blue-400">Bespoke</Link></li>
                         </ul>
                     </div>
 

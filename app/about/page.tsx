@@ -23,24 +23,38 @@ export default function About() {
             {/* History */}
             <section className="py-20">
                 <div className="container mx-auto px-6">
-                    <div className="grid lg:grid-cols-2 gap-2 items-center">
-                        <div>
-                            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-                            <p className="text-gray-600 mb-4 leading-relaxed">
-                                Founded in 1966, Capri Appliances has become a leading manufacturer in the home appliance industry. Capri’s products have always been associated with Style, Durability, and Service since its inception.
-                            </p>
-                            <p className="text-gray-600 mb-4 leading-relaxed">
-                                Capri consumers have grown to love the Capri brand, making it a household name in many homes throughout Southern Africa.
-                            </p>
-                            <p className="text-gray-600 mb-4 leading-relaxed">
-                                We have now established itself in many neighboring countries which include Zambia, Mozambique, Malawi, DRC, Botswana, and countries being reviewed for further expansion include South African and Swaziland.
-                            </p>
-                            <p className="text-gray-600 leading-relaxed">
-                                Capri has also grown its product range which now includes Gas Cookers, Laundry, Air Conditioning, and a range of popular small appliances. Capri provides professional full spares and warranty support in all countries it operates in.
-                            </p>
-                        </div>
-                        <div className=" flex items-center justify-center">
+                    {/* <div className="grid lg:grid-cols-2 gap-2 items-center"> */}
+                    <div>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+                        <p className="text-gray-600 mb-4 leading-relaxed">
+                            Founded in 1966, Capri Appliances has become a leading manufacturer in the home appliance industry. Capri’s products have always been associated with Style, Durability, and Service since its inception.
+                        </p>
+                        <p className="text-gray-600 mb-4 leading-relaxed">
+                            Capri consumers have grown to love the Capri brand, making it a household name in many homes throughout Southern Africa.
+                        </p>
+                        {/* <p className="text-gray-600 mb-4 leading-relaxed">
+                            We have now established itself in many neighboring countries which include Zambia, Mozambique, Malawi, DRC, Botswana, and countries being reviewed for further expansion include South African and Swaziland.
+                        </p> */}
+                        <p className="text-gray-600 leading-relaxed">
+                            Capri has also grown its product range which now includes Gas Cookers, Laundry, Air Conditioning, and a range of popular small appliances. Capri provides professional full spares and warranty support in all countries it operates in.
+                        </p>
+                    </div>
+                    {/* <div className=" flex items-center justify-center">
                             <Image src={Picture} alt='Capri Showroom' className='rounded-xl' height={440} />
+                        </div> */}
+                    {/* </div> */}
+
+                    <div className="flex flex-col items-center mt-15 text-center">
+                        <p className="text-gray-600 leading-relaxed mb-6 text-lg">
+                            Countries we have expanded to:
+                        </p>
+
+                        <div className="flex flex-wrap gap-10 justify-center items-center">
+                            <img src="https://flagcdn.com/zm.svg" alt="Zambia Flag" width={150} height={150} />
+                            <img src="https://flagcdn.com/mz.svg" alt="Mozambique Flag" width={150} height={150} />
+                            <img src="https://flagcdn.com/mw.svg" alt="Malawi Flag" width={150} height={150} />
+                            <img src="https://flagcdn.com/cd.svg" alt="DRC Flag" width={135} height={150} />
+                            <img src="https://flagcdn.com/bw.svg" alt="Botswana Flag" width={150} height={150} />
                         </div>
                     </div>
                 </div>

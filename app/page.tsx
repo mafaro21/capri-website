@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import freezer from '@/public/freezer.png'
 import washing from '@/public/washing.png'
 import fridge from '@/public/fridge.png'
-import solar from '@/public/solar.png'
+import air from '@/public/air.png'
 import hero from '@/public/hero.png'
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
 
   const premiumProducts = [
     {
-      name: 'FRIDGES',
+      name: 'REFRIGERATORS',
       href: '/products/fridges',
       image: fridge.src,
     },
@@ -67,14 +67,14 @@ export default function Home() {
       image: freezer.src,
     },
     {
-      name: 'WASHING MACHINES',
+      name: 'LAUNDRY',
       href: '/products/laundry',
       image: washing.src,
     },
     {
-      name: 'SOLAR',
-      href: '/products/solar',
-      image: solar.src,
+      name: 'AIR CONDITIONING',
+      href: '/products/air-conditioning',
+      image: air.src,
     },
   ];
 
