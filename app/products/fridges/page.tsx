@@ -12,7 +12,7 @@ export default function FridgesPage() {
             name: 'French Door Refrigerator',
             model: 'C-FD-7000',
             price: '$1,299',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2021/01/premium-01-1.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2021/01/premium-01-1.jpg',
             features: ['27 cu. ft.', 'Ice Maker', 'Water Dispenser'],
             badge: 'Best Seller'
         },
@@ -20,7 +20,7 @@ export default function FridgesPage() {
             name: 'Side-by-Side Refrigerator',
             model: 'C-SS-6500',
             price: '$1,099',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2021/01/premium-03.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2021/01/premium-03.jpg',
             features: ['25 cu. ft.', 'LED Lighting', 'Shelf Storage'],
             badge: 'Energy Star'
         },
@@ -28,7 +28,7 @@ export default function FridgesPage() {
             name: 'Bottom Freezer Refrigerator',
             model: 'C-BF-6200',
             price: '$999',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2020/08/C350-03.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2020/08/C350-03.jpg',
             features: ['22 cu. ft.', 'Adjustable Shelves', 'Crisper Drawers'],
             badge: 'Popular'
         },
@@ -36,7 +36,7 @@ export default function FridgesPage() {
             name: 'Top Freezer Refrigerator',
             model: 'C-TF-5800',
             price: '$799',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2020/08/C350-01.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2020/08/C350-01.jpg',
             features: ['18 cu. ft.', 'Frost Free', 'Glass Shelves'],
             badge: 'Budget Pick'
         },
@@ -44,7 +44,7 @@ export default function FridgesPage() {
             name: 'Built-In Refrigerator',
             model: 'C-BI-7500',
             price: '$2,499',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2020/08/c290-10.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2020/08/c290-10.jpg',
             features: ['30 cu. ft.', 'Panel Ready', 'Dual Cooling'],
             badge: 'Premium'
         },
@@ -52,7 +52,7 @@ export default function FridgesPage() {
             name: 'Compact Refrigerator',
             model: 'C-CR-3200',
             price: '$349',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2020/08/c290-04.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2020/08/c290-04.jpg',
             features: ['4.5 cu. ft.', 'Mini Freezer', 'Reversible Door'],
             badge: 'Compact'
         },
@@ -60,7 +60,7 @@ export default function FridgesPage() {
             name: '4-Door French Door',
             model: 'C-FD-8500',
             price: '$2,199',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2021/01/premium-02.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2021/01/premium-02.jpg',
             features: ['28 cu. ft.', 'Flex Drawer', 'Smart Features'],
             badge: 'Smart'
         },
@@ -68,7 +68,7 @@ export default function FridgesPage() {
             name: 'Counter-Depth Refrigerator',
             model: 'C-CD-7000',
             price: '$1,899',
-            image: 'https://www.capri.co.zw/wp-content/uploads/2020/08/Untitled-1-02-1.jpg',
+            image: 'https://www.appliances.co.zw/wp-content/uploads/2020/08/Untitled-1-02-1.jpg',
             features: ['24 cu. ft.', 'Flush Finish', 'LED Dispenser'],
             badge: 'Luxury'
         }
@@ -79,9 +79,9 @@ export default function FridgesPage() {
             <Navbar />
 
             {/* Category Header - Reduced height */}
-            <section className="bg-linear-to-r from-sky-900 to-sky-800 text-white py-8 md:py-12">
+            <section className="bg-linear-to-r from-lime-900 to-lime-800 text-white py-8 md:py-12">
                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="flex items-center space-x-2 text-xs md:text-sm text-sky-200 mb-2 md:mb-3">
+                    <div className="flex items-center space-x-2 text-xs md:text-sm text-lime-200 mb-2 md:mb-3">
                         <Link href="/" className="hover:text-white">Home</Link>
                         <span>/</span>
                         <Link href="/products" className="hover:text-white">Products</Link>
@@ -89,7 +89,7 @@ export default function FridgesPage() {
                         <span className="text-white">Refrigerators</span>
                     </div>
                     <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1 md:mb-2">Refrigerators</h1>
-                    <p className="text-sm md:text-base lg:text-lg text-sky-100 max-w-2xl">
+                    <p className="text-sm md:text-base lg:text-lg text-lime-100 max-w-2xl">
                         Discover our collection of premium refrigerators
                     </p>
                 </div>
@@ -100,7 +100,7 @@ export default function FridgesPage() {
                 <div className="container mx-auto px-4 md:px-6 py-2 md:py-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                         <div className="flex flex-wrap gap-2">
-                            <select className="border rounded-lg px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm text-gray-700 focus:ring-1 focus:ring-sky-600">
+                            <select className="border rounded-lg px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm text-gray-700 focus:ring-1 focus:ring-lime-600">
                                 <option>All Types</option>
                                 <option>French Door</option>
                                 <option>Side-by-Side</option>
@@ -108,7 +108,7 @@ export default function FridgesPage() {
                                 <option>Top Freezer</option>
                                 <option>Built-In</option>
                             </select>
-                            <select className="border rounded-lg px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm text-gray-700 focus:ring-1 focus:ring-sky-600">
+                            <select className="border rounded-lg px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm text-gray-700 focus:ring-1 focus:ring-lime-600">
                                 <option>All Sizes</option>
                                 <option>Compact</option>
                                 <option>Medium</option>
@@ -118,7 +118,7 @@ export default function FridgesPage() {
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="text-xs text-gray-600 hidden sm:inline">Sort:</span>
-                            <select className="border rounded-lg px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm text-gray-700 focus:ring-1 focus:ring-sky-600">
+                            <select className="border rounded-lg px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm text-gray-700 focus:ring-1 focus:ring-lime-600">
                                 <option>Price: Low-High</option>
                                 <option>Price: High-Low</option>
                                 <option>Newest</option>
@@ -126,7 +126,7 @@ export default function FridgesPage() {
                             <div className="flex items-center space-x-1 border-l pl-2">
                                 <button
                                     onClick={() => setViewMode('grid')}
-                                    className={`p-1 rounded ${viewMode === 'grid' ? 'bg-sky-100 text-sky-600' : 'text-gray-400 hover:text-gray-600'}`}
+                                    className={`p-1 rounded ${viewMode === 'grid' ? 'bg-lime-100 text-lime-600' : 'text-gray-400 hover:text-gray-600'}`}
                                 >
                                     <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -134,7 +134,7 @@ export default function FridgesPage() {
                                 </button>
                                 <button
                                     onClick={() => setViewMode('list')}
-                                    className={`p-1 rounded ${viewMode === 'list' ? 'bg-sky-100 text-sky-600' : 'text-gray-400 hover:text-gray-600'}`}
+                                    className={`p-1 rounded ${viewMode === 'list' ? 'bg-lime-100 text-lime-600' : 'text-gray-400 hover:text-gray-600'}`}
                                 >
                                     <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -184,8 +184,8 @@ export default function FridgesPage() {
 
                                         {/* Price and action */}
                                         <div className="flex items-center justify-between mt-1">
-                                            <span className="text-xs sm:text-sm font-bold text-sky-600">{product.price}</span>
-                                            <span className="text-[10px] sm:text-xs text-sky-600 group-hover:translate-x-0.5 transition inline-flex items-center">
+                                            <span className="text-xs sm:text-sm font-bold text-lime-600">{product.price}</span>
+                                            <span className="text-[10px] sm:text-xs text-lime-600 group-hover:translate-x-0.5 transition inline-flex items-center">
                                                 View
                                                 <svg className="w-2.5 h-2.5 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -216,7 +216,7 @@ export default function FridgesPage() {
                                                 <p className="text-[10px] text-gray-400 truncate">{product.model}</p>
                                                 <h3 className="font-semibold text-gray-900 text-xs sm:text-sm truncate">{product.name}</h3>
                                             </div>
-                                            <span className="text-xs sm:text-sm font-bold text-sky-600 whitespace-nowrap">{product.price}</span>
+                                            <span className="text-xs sm:text-sm font-bold text-lime-600 whitespace-nowrap">{product.price}</span>
                                         </div>
                                         <div className="flex items-center justify-between mt-1">
                                             <div className="flex gap-1">
@@ -227,7 +227,7 @@ export default function FridgesPage() {
                                                 ))}
                                             </div>
                                             <div className="flex gap-1">
-                                                <button className="text-[10px] bg-sky-600 text-white px-2 py-0.5 rounded hover:bg-sky-700">
+                                                <button className="text-[10px] bg-lime-600 text-white px-2 py-0.5 rounded hover:bg-lime-700">
                                                     View
                                                 </button>
                                             </div>
@@ -247,7 +247,7 @@ export default function FridgesPage() {
                                 </svg>
                             </button>
                             {[1, 2, 3, 4, 5].map((page) => (
-                                <button key={page} className={`w-6 h-6 md:w-7 md:h-7 rounded text-xs ${page === 1 ? 'bg-sky-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                                <button key={page} className={`w-6 h-6 md:w-7 md:h-7 rounded text-xs ${page === 1 ? 'bg-lime-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                                     {page}
                                 </button>
                             ))}

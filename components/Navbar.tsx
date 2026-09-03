@@ -1,8 +1,7 @@
 "use client";
+
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '@/public/CapriLogo.png'
 
 // Type definitions
 interface Subcategory {
@@ -18,7 +17,7 @@ interface MainCategory {
 
 type SubcategoriesMap = {
     [key: string]: Subcategory[];
-}
+};
 
 export default function Navbar() {
     const [isProductsOpen, setIsProductsOpen] = useState<boolean>(false);
@@ -88,21 +87,28 @@ export default function Navbar() {
         ],
     };
 
-    // Quick links for popular categories
-    const quickLinks = [
-        { name: 'Fridges', href: '/products/refrigerators' },
-        { name: 'Freezers', href: '/products/freezers' },
-        { name: 'Laundry', href: '/products/laundry' },
-        { name: 'AC', href: '/products/air-conditioning' },
-    ];
-
     return (
         <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
             <div className="container mx-auto px-6">
                 <div className="flex justify-between items-center h-20">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center">
-                        <Image src={Logo} alt='Capri Logo' height={90} priority />
+                    {/* Appliance Brand Logo */}
+                    <Link href="/" className="flex items-center gap-2.5 group">
+                        <div className="w-10 h-10 rounded-xl bg-lime-700 flex items-center justify-center text-white shadow-md group-hover:bg-lime-800 transition-colors">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 6h.01M8 14h.01" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 13l-2 3h3l-2 3" />
+                            </svg>
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-xl font-black text-gray-900 tracking-tight leading-none group-hover:text-lime-700 transition-colors">
+                                APEX<span className="text-lime-700">.</span>
+                            </span>
+                            <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase mt-0.5">
+                                Home Appliances
+                            </span>
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -113,10 +119,11 @@ export default function Navbar() {
                             onMouseEnter={() => setIsProductsOpen(true)}
                             onMouseLeave={() => setIsProductsOpen(false)}
                         >
-                            <div className="flex items-center space-x-1 text-gray-700 hover:text-sky-700 font-medium transition py-2 cursor-pointer">
+                            <div className="flex items-center space-x-1 text-gray-700 hover:text-lime-700 font-medium transition py-2 cursor-pointer">
                                 <span>Products</span>
                                 <svg
-                                    className={`w-4 h-4 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`}
+                                    className={`w-4 h-4 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''
+                                        }`}
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -125,30 +132,28 @@ export default function Navbar() {
                                 </svg>
                             </div>
 
-                            {/* Dropdown Menu - Shows main categories with their subcategories */}
+                            {/* Dropdown Menu */}
                             {isProductsOpen && (
                                 <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-screen max-w-[950px]">
                                     <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-6 mx-4">
                                         <div className="grid grid-cols-4 gap-6 px-6">
                                             {mainCategories.map((category) => (
                                                 <div key={category.name}>
-                                                    {/* Main Category Link */}
                                                     <Link
                                                         href={category.href}
-                                                        className="block font-semibold text-sky-700 hover:text-sky-950 text-sm uppercase tracking-wider mb-3 transition"
+                                                        className="block font-semibold text-lime-700 hover:text-lime-950 text-sm uppercase tracking-wider mb-3 transition"
                                                         onClick={() => setIsProductsOpen(false)}
                                                     >
                                                         {category.name}
                                                     </Link>
 
-                                                    {/* Subcategories */}
                                                     {category.hasSubcategories && subcategories[category.name] && (
                                                         <ul className="space-y-0">
                                                             {subcategories[category.name].map((item) => (
                                                                 <li key={item.name}>
                                                                     <Link
                                                                         href={item.href}
-                                                                        className="text-gray-600 hover:text-sky-700 text-sm transition block py-1"
+                                                                        className="text-gray-600 hover:text-lime-700 text-sm transition block py-1"
                                                                         onClick={() => setIsProductsOpen(false)}
                                                                     >
                                                                         {item.name}
@@ -165,30 +170,20 @@ export default function Navbar() {
                             )}
                         </div>
 
-                        {/* Quick Links to Main Categories */}
-                        {/* <div className="flex items-center space-x-4 border-l pl-6 ml-2">
-                            {quickLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-gray-600 hover:text-sky-700 text-sm font-medium"
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div> */}
-
-                        <Link href="/about" className="text-gray-700 hover:text-sky-700 font-medium transition py-2">
+                        <Link href="/about" className="text-gray-700 hover:text-lime-700 font-medium transition py-2">
                             About
                         </Link>
-                        <Link href="/contact" className="text-gray-700 hover:text-sky-700 font-medium transition py-2">
+                        <Link href="/contact" className="text-gray-700 hover:text-lime-700 font-medium transition py-2">
                             Contact
                         </Link>
                     </div>
 
                     {/* Desktop CTA */}
                     <div className="hidden lg:flex items-center">
-                        <Link href="/credit-application" className="bg-sky-700 text-white px-5 py-2 rounded-lg hover:bg-sky-800 transition font-medium">
+                        <Link
+                            href="/credit-application"
+                            className="bg-lime-700 text-white px-5 py-2 rounded-lg hover:bg-lime-800 transition font-medium"
+                        >
                             Buy on Credit
                         </Link>
                     </div>
@@ -196,7 +191,7 @@ export default function Navbar() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="lg:hidden text-gray-700 hover:text-sky-700 p-2"
+                        className="lg:hidden text-gray-700 hover:text-lime-700 p-2"
                         aria-label="Toggle menu"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -209,29 +204,27 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                {/* Mobile Menu - Simplified with main categories and their subcategories */}
+                {/* Mobile Menu */}
                 {isMobileMenuOpen && (
                     <div className="lg:hidden py-4 border-t border-gray-200 max-h-[80vh] overflow-y-auto">
                         <div className="space-y-4">
-                            {/* Main Categories with Subcategories */}
                             {mainCategories.map((category) => (
                                 <div key={category.name} className="border-b border-gray-100 pb-3">
                                     <Link
                                         href={category.href}
-                                        className="block font-semibold text-gray-900 hover:text-sky-700 text-base mb-2"
+                                        className="block font-semibold text-gray-900 hover:text-lime-700 text-base mb-2"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         {category.name}
                                     </Link>
 
-                                    {/* Subcategories for mobile */}
                                     {category.hasSubcategories && subcategories[category.name] && (
                                         <div className="grid grid-cols-2 gap-2 ml-2">
                                             {subcategories[category.name].map((item) => (
                                                 <Link
                                                     key={item.name}
                                                     href={item.href}
-                                                    className="block py-1.5 text-gray-600 hover:text-sky-700 text-sm"
+                                                    className="block py-1.5 text-gray-600 hover:text-lime-700 text-sm"
                                                     onClick={() => setIsMobileMenuOpen(false)}
                                                 >
                                                     {item.name}
@@ -244,21 +237,21 @@ export default function Navbar() {
 
                             <Link
                                 href="/about"
-                                className="block py-2 text-gray-700 hover:text-sky-700 font-medium"
+                                className="block py-2 text-gray-700 hover:text-lime-700 font-medium"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 About Us
                             </Link>
                             <Link
                                 href="/contact"
-                                className="block py-2 text-gray-700 hover:text-sky-700 font-medium"
+                                className="block py-2 text-gray-700 hover:text-lime-700 font-medium"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Contact
                             </Link>
                             <Link
                                 href="/credit-application"
-                                className="block mt-4 bg-sky-700 text-white px-4 py-2.5 rounded-lg text-center font-medium"
+                                className="block mt-4 bg-lime-700 text-white px-4 py-2.5 rounded-lg text-center font-medium"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Buy on Credit
