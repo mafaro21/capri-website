@@ -83,7 +83,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section with Slideshow - Fixed Height Container */}
-      <section className="relative text-white overflow-hidden h-[500px] sm:h-[550px] md:h-[600px]">
+      <section className="relative text-white overflow-hidden min-h-[620px] sm:h-[550px] md:h-[600px]">
         {/* Fixed container for all slides */}
         <div className="absolute inset-0">
           {slides.map((slide, index) => (
@@ -108,7 +108,7 @@ export default function Home() {
         {/* Slide Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition group cursor-pointer"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition group cursor-pointer"
           aria-label="Previous slide"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@ export default function Home() {
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition group cursor-pointer"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition group cursor-pointer"
           aria-label="Next slide"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +126,7 @@ export default function Home() {
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-20 flex space-x-2 ">
+        <div className="absolute bottom-[155px] sm:bottom-28 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -141,15 +141,15 @@ export default function Home() {
         </div>
 
         {/* Content - Centered vertically with consistent positioning */}
-        <div className="container mx-15  sm:px-6 h-full relative z-10 flex items-center">
-          <div className="max-w-3xl">
-            <span className="inline-block bg-white/10 backdrop-blur-sm text-lime-100 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 sm:mb-6">
+        <div className="container mx-auto px-4 sm:px-6 h-full relative z-10 flex items-center">
+          <div className="max-w-3xl w-full pb-24 sm:pb-0">
+            <span className="inline-block bg-white/10 backdrop-blur-sm text-lime-100 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4 sm:mb-6 mt-16">
               Proudly Zimbabwean • Established 1966
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight pr-8 sm:pr-0">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-lime-100 mb-6 sm:mb-8 leading-relaxed">
+            <p className="text-sm sm:text-lg md:text-xl text-lime-100 mb-6 sm:mb-8 leading-relaxed">
               {slides[currentSlide].description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:space-x-4">
@@ -166,31 +166,31 @@ export default function Home() {
         {/* Trust Badges - Mobile Optimized */}
         <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/20 backdrop-blur-sm z-10">
           <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-between gap-3 sm:gap-0 items-center text-xs sm:text-sm">
-              <div className="flex items-center space-x-1 sm:space-x-2">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-between gap-x-4 gap-y-3 sm:gap-0 items-center text-[11px] sm:text-sm">
+              <div className="flex items-center space-x-1 sm:space-x-2 min-w-0">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-lime-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-lime-100 whitespace-nowrap">10-Year Warranty</span>
+                <span className="text-lime-100 whitespace-nowrap truncate">10-Year Warranty</span>
               </div>
-              <div className="flex items-center space-x-1 sm:space-x-2">
+              <div className="flex items-center space-x-1 sm:space-x-2 min-w-0">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-lime-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clipRule="evenodd" />
                 </svg>
-                <span className="text-lime-100 whitespace-nowrap">Energy Star</span>
+                <span className="text-lime-100 whitespace-nowrap truncate">Energy Star</span>
               </div>
-              <div className="flex items-center space-x-1 sm:space-x-2">
+              <div className="flex items-center space-x-1 sm:space-x-2 min-w-0">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-lime-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <span className="text-lime-100 whitespace-nowrap">24/7 Support</span>
+                <span className="text-lime-100 whitespace-nowrap truncate">24/7 Support</span>
               </div>
-              <div className="flex items-center space-x-1 sm:space-x-2">
+              <div className="flex items-center space-x-1 sm:space-x-2 min-w-0">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-lime-300 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
                   <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
                 </svg>
-                <span className="text-lime-100 whitespace-nowrap">Credit Available</span>
+                <span className="text-lime-100 whitespace-nowrap truncate">Credit Available</span>
               </div>
             </div>
           </div>
@@ -209,10 +209,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {premiumProducts.map((product, index) => (
-              <Link key={index} href={product.href} className="group relative overflow-hidden">
-                <div className="relative aspect-square">
+              <Link key={index} href={product.href} className="group relative overflow-hidden min-w-0">
+                <div className="relative aspect-[4/3] sm:aspect-square">
                   <img
                     src={product.image}
                     alt={product.name}
